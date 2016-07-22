@@ -212,6 +212,12 @@ func (h *CSRFHandler) SetFailureHandler(handler http.Handler) {
 	h.failureHandler = handler
 }
 
+// Sets the handler to call in case the CSRF check
+// is ok. By default it's defaultSuccessHandler.
+func (h *CSRFHandler) SetSuccessHandler(handler http.Handler) {
+	h.successHandler = handler
+}
+
 // Sets the base cookie to use when building a CSRF token cookie
 // This way you can specify the Domain, Path, HttpOnly, Secure, etc.
 func (h *CSRFHandler) SetBaseCookie(cookie http.Cookie) {
